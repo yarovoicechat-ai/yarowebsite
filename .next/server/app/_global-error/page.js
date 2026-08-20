@@ -1,0 +1,10 @@
+var R=require("../../chunks/ssr/[turbopack]_runtime.js")("server/app/_global-error/page.js")
+R.c("server/chunks/ssr/[root-of-the-server]__0.0oh5d._.js")
+R.c("server/chunks/ssr/0ipp_next_dist_13kzevs._.js")
+R.c("server/chunks/ssr/0ipp_next_dist_esm_build_templates_app-page_08q5g2z.js")
+R.c("server/chunks/ssr/[root-of-the-server]__02kq4i3._.js")
+R.c("server/chunks/ssr/[root-of-the-server]__00n58g4._.js")
+R.c("server/chunks/ssr/0ipp_next_dist_client_components_builtin_global-error_0khfh-z.js")
+R.c("server/chunks/ssr/meethi-chat-web__next-internal_server_app__global-error_page_actions_04og5cp.js")
+R.m(37157)
+module.exports=R.m(37157).exports

@@ -1,10 +1,7 @@
 import Link from 'next/link';
+import DownloadButton from '@/components/DownloadButton';
 
 export default function Home() {
-  const downloadUrl = process.env.NEXT_PUBLIC_API_BASE_URL
-    ? `${process.env.NEXT_PUBLIC_API_BASE_URL.replace(/\/api$/, '')}/api/v1/app-releases/download`
-    : 'https://api.mithichat.live/api/v1/app-releases/download';
-
   return (
     <div className="px-[5%] max-w-7xl mx-auto pt-20">
       {/* Hero Section */}
@@ -17,10 +14,10 @@ export default function Home() {
           Experience crystal clear one-to-one voice calls, meet amazing people, and enjoy secure private chats with Meethi Chaat.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
-          <a href={downloadUrl} className="btn-primary flex items-center gap-2">
+          <DownloadButton className="btn-primary flex items-center gap-2">
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.523 15.3414L18.4556 16.2741C18.8461 16.6646 18.8461 17.2977 18.4556 17.6883L17.523 18.6209C17.1325 19.0115 16.4993 19.0115 16.1088 18.6209L15.1761 17.6883C14.7856 17.2977 14.7856 16.6646 15.1761 16.2741L16.1088 15.3414C16.4993 14.9509 17.1325 14.9509 17.523 15.3414ZM11.127 18.2325L13.1251 16.2344L10.5135 13.6228L8.51537 15.621L11.127 18.2325ZM14.1837 15.1758L16.7953 12.5642L14.7972 10.5661L12.1856 13.1777L14.1837 15.1758ZM9.45695 14.6794L11.4551 12.6812L8.84348 10.0696L6.84534 12.0677L9.45695 14.6794ZM12.5136 11.6226L15.1253 9.01095L13.1271 7.01281L10.5155 9.62446L12.5136 11.6226Z"/></svg>
             Download Android App
-          </a>
+          </DownloadButton>
           <Link href="#features" className="px-8 py-3 rounded-full border border-white/10 hover:bg-white/5 transition-all">
             Learn More
           </Link>

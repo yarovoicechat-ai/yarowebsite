@@ -1,0 +1,3 @@
+module.exports=[9987,(a,b,c)=>{let{createClientModuleProxy:d}=a.r(78157);a.n(d("[project]/meethi-chat-web/node_modules/next/dist/client/components/builtin/global-error.js <module evaluation>"))},82598,(a,b,c)=>{let{createClientModuleProxy:d}=a.r(78157);a.n(d("[project]/meethi-chat-web/node_modules/next/dist/client/components/builtin/global-error.js"))},22378,a=>{"use strict";a.i(9987);var b=a.i(82598);a.n(b)},73912,a=>{a.n(a.i(22378))}];
+
+//# sourceMappingURL=0ipp_next_dist_client_components_builtin_global-error_0khfh-z.js.map
