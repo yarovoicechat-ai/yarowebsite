@@ -4,13 +4,15 @@
 type AppRoutes = "/" | "/contact" | "/delete-account" | "/privacy" | "/terms"
 type PageRoutes = never
 type LayoutRoutes = "/"
-type RedirectRoutes = never
+type RedirectRoutes = "/api/v1/app-releases/download" | "/app-release.apk"
 type RewriteRoutes = never
 type Routes = AppRoutes | PageRoutes | LayoutRoutes | RedirectRoutes | RewriteRoutes
 
 
 interface ParamMap {
   "/": {}
+  "/api/v1/app-releases/download": {}
+  "/app-release.apk": {}
   "/contact": {}
   "/delete-account": {}
   "/privacy": {}

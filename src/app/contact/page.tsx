@@ -1,25 +1,78 @@
+import { Mail, ShieldCheck, MessageSquare, Building, Headphones, Sparkles } from 'lucide-react';
+
 export default function Contact() {
   return (
-    <div className="max-w-4xl mx-auto px-[5%] py-20 text-center">
-      <h1 className="text-4xl md:text-6xl font-bold mb-6">Get In Touch</h1>
-      <p className="text-zinc-400 text-lg mb-12 max-w-2xl mx-auto">
-        Have questions, feedback, or need support? Our team is dedicated to providing you with the best experience possible.
-      </p>
-
-      <div className="glass p-12 rounded-3xl border-primary/20 max-w-2xl mx-auto">
-        <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-8">
-          <svg className="w-10 h-10 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12">
+      {/* Header */}
+      <div className="text-center space-y-4 max-w-2xl mx-auto">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-pink-500/10 border border-pink-500/30 text-pink-400 text-xs font-bold uppercase tracking-wider">
+          <Headphones className="w-3.5 h-3.5" /> 24/7 Dedicated Support
         </div>
-        <h2 className="text-3xl font-bold mb-4">Email Us</h2>
-        <p className="text-zinc-500 mb-8">We typically respond within 24 hours.</p>
-        <a href="mailto:support@mithichat.com" className="text-2xl font-bold text-gradient hover:opacity-80 transition-opacity">
-          support@mithichat.com
-        </a>
+        <h1 className="text-4xl sm:text-5xl font-extrabold text-white">
+          Get in Touch with <span className="text-gradient">Meethi Chaat</span>
+        </h1>
+        <p className="text-zinc-400 text-base">
+          Have questions, hosting inquiries, or technical feedback? Our dedicated support team is available 24/7 to assist you.
+        </p>
       </div>
 
-      <div className="mt-16 text-zinc-500 text-sm">
-        <p>Registered Address: Meethi Chaat Inc.</p>
-        <p>Availability: 24/7 Support for Premium Users</p>
+      {/* Support Contact Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="glass glass-hover p-8 rounded-3xl border border-white/10 space-y-4 text-center">
+          <div className="w-14 h-14 rounded-2xl bg-pink-500/10 border border-pink-500/20 flex items-center justify-center mx-auto text-pink-400 shadow-lg">
+            <Mail className="w-7 h-7" />
+          </div>
+          <h3 className="text-xl font-bold text-white">General Support</h3>
+          <p className="text-zinc-400 text-xs leading-relaxed">
+            For account assistance, app technical feedback, and general questions.
+          </p>
+          <a
+            href="mailto:support@mithichat.live"
+            className="block text-pink-400 font-bold text-sm hover:underline pt-2"
+          >
+            support@mithichat.live
+          </a>
+        </div>
+
+        <div className="glass glass-hover p-8 rounded-3xl border border-white/10 space-y-4 text-center">
+          <div className="w-14 h-14 rounded-2xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mx-auto text-purple-400 shadow-lg">
+            <Building className="w-7 h-7" />
+          </div>
+          <h3 className="text-xl font-bold text-white">Agency & Host Recruitment</h3>
+          <p className="text-zinc-400 text-xs leading-relaxed">
+            Apply as an official talent host, agency leader, or coin seller partner.
+          </p>
+          <a
+            href="mailto:agency@mithichat.live"
+            className="block text-purple-400 font-bold text-sm hover:underline pt-2"
+          >
+            agency@mithichat.live
+          </a>
+        </div>
+
+        <div className="glass glass-hover p-8 rounded-3xl border border-white/10 space-y-4 text-center">
+          <div className="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mx-auto text-cyan-400 shadow-lg">
+            <ShieldCheck className="w-7 h-7" />
+          </div>
+          <h3 className="text-xl font-bold text-white">Safety & Appeals</h3>
+          <p className="text-zinc-400 text-xs leading-relaxed">
+            Report safety violations, policy concerns, or account appeal requests.
+          </p>
+          <a
+            href="mailto:safety@mithichat.live"
+            className="block text-cyan-400 font-bold text-sm hover:underline pt-2"
+          >
+            safety@mithichat.live
+          </a>
+        </div>
+      </div>
+
+      {/* Info Card */}
+      <div className="glass p-8 rounded-3xl border border-white/10 text-center space-y-2">
+        <h4 className="text-white font-bold text-base">Office Availability & Response Time</h4>
+        <p className="text-zinc-400 text-xs max-w-lg mx-auto">
+          Our global customer care team operates 24/7. Average email response time is under 2 hours for active app users and hosts.
+        </p>
       </div>
     </div>
   );

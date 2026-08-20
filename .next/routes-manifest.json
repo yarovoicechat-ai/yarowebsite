@@ -12,6 +12,18 @@
       "priority": true,
       "statusCode": 308,
       "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    },
+    {
+      "source": "/app-release.apk",
+      "destination": "https://github.com/bajpeyigroupdev/management_Panel/raw/main/public/releases/MeethiChat-v1.8.3.apk",
+      "statusCode": 307,
+      "regex": "^(?!/_next)/app-release\\.apk(?:/)?$"
+    },
+    {
+      "source": "/api/v1/app-releases/download",
+      "destination": "https://github.com/bajpeyigroupdev/management_Panel/raw/main/public/releases/MeethiChat-v1.8.3.apk",
+      "statusCode": 307,
+      "regex": "^(?!/_next)/api/v1/app-releases/download(?:/)?$"
     }
   ],
   "headers": [],

@@ -306,7 +306,19 @@ self.__SERVER_FILES_MANIFEST={
     "turbopack": {
       "root": "E:\\All In One\\Mithi App"
     },
-    "distDirRoot": ".next"
+    "distDirRoot": ".next",
+    "_originalRedirects": [
+      {
+        "source": "/app-release.apk",
+        "destination": "https://github.com/bajpeyigroupdev/management_Panel/raw/main/public/releases/MeethiChat-v1.8.3.apk",
+        "permanent": false
+      },
+      {
+        "source": "/api/v1/app-releases/download",
+        "destination": "https://github.com/bajpeyigroupdev/management_Panel/raw/main/public/releases/MeethiChat-v1.8.3.apk",
+        "permanent": false
+      }
+    ]
   },
   "appDir": "E:\\All In One\\Mithi App\\meethi-chat-web",
   "relativeAppDir": "meethi-chat-web",
