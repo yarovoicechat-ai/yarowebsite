@@ -10,7 +10,7 @@ interface DownloadButtonProps {
   showIcon?: boolean;
 }
 
-const DEFAULT_FALLBACK_URL = 'https://api.mithichat.live/api/v1/app-releases/download';
+const DEFAULT_FALLBACK_URL = '/app-release.apk';
 
 export default function DownloadButton({
   className = '',
