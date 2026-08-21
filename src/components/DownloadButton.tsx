@@ -31,7 +31,11 @@ export default function DownloadButton({
           if (json && json.success && json.data) {
             const liveUrl = json.data.fileUrl || json.data.downloadUrl;
             if (liveUrl && liveUrl.startsWith('http')) {
-              setDownloadUrl(liveUrl);
+              // Ignore temporary tunnel URLs (loca.lt, ngrok, trycloudflare) that expire easily
+              const isTunnelUrl = /loca\.lt|ngrok|trycloudflare/i.test(liveUrl);
+              if (!isTunnelUrl) {
+                setDownloadUrl(liveUrl);
+              }
             }
             if (json.data.versionName) {
               setVersionName(json.data.versionName);
