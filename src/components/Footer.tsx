@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Sparkles, ShieldCheck, Heart, Radio, Lock, CheckCircle2 } from 'lucide-react';
+import { ShieldCheck, Heart, Lock, CheckCircle2 } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -13,13 +13,13 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="space-y-4 md:col-span-1">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-pink-500 via-purple-600 to-cyan-400 p-[1px]">
-                <div className="w-full h-full bg-[#0d0d14] rounded-[15px] flex items-center justify-center">
-                  <Sparkles className="w-5 h-5 text-pink-500" />
-                </div>
-              </div>
+              <img
+                src="/logo.png"
+                alt="Meethi Chat Logo"
+                className="w-12 h-12 rounded-2xl border border-pink-500/30 shadow-lg shadow-pink-500/30 object-cover"
+              />
               <span className="text-xl font-extrabold text-gradient">
-                Meethi Chaat
+                Meethi Chat
               </span>
             </div>
             <p className="text-zinc-400 text-sm leading-relaxed">
@@ -42,10 +42,10 @@ export default function Footer() {
                 <Link href="/#features" className="hover:text-pink-400 transition-colors">Core Features</Link>
               </li>
               <li>
-                <Link href="/#live-stats" className="hover:text-pink-400 transition-colors">Platform Statistics</Link>
+                <Link href="/#calculator" className="hover:text-pink-400 transition-colors">Host Income Calculator</Link>
               </li>
               <li>
-                <Link href="/#safety" className="hover:text-pink-400 transition-colors">Safety Guidelines</Link>
+                <Link href="/#live-stats" className="hover:text-pink-400 transition-colors">Platform Statistics</Link>
               </li>
               <li>
                 <a href="https://management.mithichat.live" target="_blank" rel="noopener noreferrer" className="hover:text-pink-400 transition-colors">Admin Portal</a>
@@ -98,7 +98,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
           <div>
-            &copy; {new Date().getFullYear()} Meethi Chaat Inc. All rights reserved.
+            &copy; {new Date().getFullYear()} Meethi Chat Inc. All rights reserved.
           </div>
           <div className="flex items-center gap-1 text-zinc-400">
             Built with <Heart className="w-3.5 h-3.5 text-pink-500 fill-pink-500 mx-1" /> for Global Voice Communities.

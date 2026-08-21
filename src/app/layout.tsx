@@ -3,6 +3,7 @@ import { Outfit } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import FloatingDownloadBar from "@/components/FloatingDownloadBar";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -10,8 +11,13 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Meethi Chaat - Connect & Chat with the World",
-  description: "Experience crystal clear voice calls, meet amazing people, and enjoy secure private chats with Meethi Chaat.",
+  title: "Meethi Chat - Connect, Voice Chat & Live Entertainment",
+  description: "Experience crystal-clear 1-on-1 voice calls, live 9-seat audio party rooms, 3D animated virtual gifts, and fast creator earnings with Meethi Chat.",
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
 };
 
 export default function RootLayout({
@@ -21,14 +27,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${outfit.variable} scroll-smooth`}>
+      <head>
+        <link rel="icon" href="/logo.png" sizes="any" />
+        <link rel="apple-touch-icon" href="/logo.png" />
+      </head>
       <body className="antialiased font-sans">
         <Navbar />
         <main className="min-h-screen pt-10">
           {children}
         </main>
+        <FloatingDownloadBar />
         <Footer />
       </body>
     </html>
   );
 }
-

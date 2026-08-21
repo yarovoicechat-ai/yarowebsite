@@ -1,17 +1,17 @@
-import { Lock, ShieldCheck, FileText, CheckCircle2 } from 'lucide-react';
+import { Lock } from 'lucide-react';
 
 export default function PrivacyPolicy() {
   const sections = [
     {
       title: "1. Overview & Commitment to Privacy",
-      content: "Welcome to Meethi Chaat (\"we,\" \"our,\" or \"us\"). We are committed to safeguarding user data, ensuring maximum transparency, and upholding international privacy standards. This Privacy Policy details how we collect, handle, and protect your information when you use our mobile application and related services."
+      content: "Welcome to Meethi Chat (\"we,\" \"our,\" or \"us\"). We are committed to safeguarding user data, ensuring maximum transparency, and upholding international privacy standards. This Privacy Policy details how we collect, handle, and protect your information when you use our mobile application and related services."
     },
     {
       title: "2. Information We Collect",
       subsections: [
         {
           subtitle: "Real-Time Microphone & Audio Data",
-          text: "Meethi Chaat is an interactive voice chat platform requiring microphone access (android.permission.RECORD_AUDIO). Audio data is processed strictly in real-time for live voice communication using Agora RTC engine. Voice calls and room conversations are NEVER recorded or stored on our servers."
+          text: "Meethi Chat is an interactive voice chat platform requiring microphone access (android.permission.RECORD_AUDIO). Audio data is processed strictly in real-time for live voice communication. Voice calls and room conversations are NEVER recorded or stored on our servers."
         },
         {
           subtitle: "Account & Profile Information",
@@ -25,7 +25,7 @@ export default function PrivacyPolicy() {
     },
     {
       title: "3. Third-Party Partners & Infrastructure",
-      content: "We utilize trusted industry partners including Agora RTC (real-time voice streaming), Google Play Services (secure billing & analytics), and Firebase Admin (push notifications & authentication) to deliver reliable platform performance."
+      content: "We utilize trusted industry infrastructure, including real-time audio streaming, Google Play Services (secure billing & analytics), and Firebase Admin (push notifications & authentication) to deliver reliable platform performance."
     },
     {
       title: "4. Data Security & Storage",

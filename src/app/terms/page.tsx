@@ -1,14 +1,14 @@
-import { ShieldCheck, FileText, CheckCircle2 } from 'lucide-react';
+import { FileText, CheckCircle2 } from 'lucide-react';
 
 export default function TermsOfService() {
   const sections = [
     {
       title: "1. Acceptance of Terms",
-      content: "By downloading, installing, or accessing the Meethi Chaat mobile application, these Terms of Service automatically apply to you. Please read them carefully before using our platform services."
+      content: "By downloading, installing, or accessing the Meethi Chat mobile application, these Terms of Service automatically apply to you. Please read them carefully before using our platform services."
     },
     {
       title: "2. Age Eligibility (18+ Adult Platform)",
-      content: "You must be at least 18 years old to access or register on Meethi Chaat. By using the app, you represent and warrant that you are 18 years of age or older."
+      content: "You must be at least 18 years old to access or register on Meethi Chat. By using the app, you represent and warrant that you are 18 years of age or older."
     },
     {
       title: "3. User Conduct & Zero-Tolerance Moderation",
@@ -24,7 +24,7 @@ export default function TermsOfService() {
     },
     {
       title: "5. Intellectual Property & Modifications",
-      content: "All trademarks, logos, audio algorithms, and platform assets belong exclusively to Meethi Chaat Inc. We reserve the right to modify these terms with advance notice."
+      content: "All trademarks, logos, audio algorithms, and platform assets belong exclusively to Meethi Chat Inc. We reserve the right to modify these terms with advance notice."
     }
   ];
 

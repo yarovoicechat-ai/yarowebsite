@@ -4,9 +4,9 @@ export default function FeaturesGrid() {
   const features = [
     {
       title: "Crystal Clear 1-on-1 Audio",
-      desc: "Powered by Agora RTC engine delivering 24-bit 48kHz HD audio with AI noise suppression and ultra-low 20ms latency.",
+      desc: "Delivering high-definition HD audio with AI noise suppression and ultra-low 20ms latency for real-time conversation.",
       icon: <Mic className="w-7 h-7 text-pink-400" />,
-      tag: "Agora RTC Powered",
+      tag: "Ultra HD Audio",
       gradient: "from-pink-500/20 to-rose-500/5",
     },
     {

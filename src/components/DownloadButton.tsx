@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Download, ArrowRight, ShieldCheck } from 'lucide-react';
+import { Download, ArrowRight } from 'lucide-react';
 
 interface DownloadButtonProps {
   className?: string;
@@ -66,7 +66,7 @@ export default function DownloadButton({
       target="_blank"
       rel="noopener noreferrer"
       className={`${baseStyles} ${variantStyles} ${className}`}
-      title={`Download Meethi Chaat APK v${versionName}`}
+      title={`Download Meethi Chat APK v${versionName}`}
     >
       {showIcon && <Download className="w-5 h-5 text-white animate-bounce shrink-0" />}
       <span>{children || `Download Android App v${versionName}`}</span>

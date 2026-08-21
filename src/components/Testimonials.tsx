@@ -1,4 +1,4 @@
-import { Star, ShieldCheck, Heart, Crown } from 'lucide-react';
+import { Star } from 'lucide-react';
 
 export default function Testimonials() {
   const reviews = [
@@ -23,7 +23,7 @@ export default function Testimonials() {
     {
       name: "Priya Malhotra",
       role: "Agency Leader",
-      text: "Screen security and privacy controls give complete peace of mind. Our team loves hosting events on Meethi Chaat.",
+      text: "Screen security and privacy controls give complete peace of mind. Our team loves hosting events on Meethi Chat.",
       stars: 5,
       badge: "Agency Leader",
       avatar: "💎",
@@ -42,7 +42,7 @@ export default function Testimonials() {
             Loved by <span className="text-gradient">Thousands of Users</span>
           </h2>
           <p className="text-zinc-400 text-sm max-w-xl mx-auto">
-            See what our hosts, VIP members, and community leaders say about their experience on Meethi Chaat.
+            See what our hosts, VIP members, and community leaders say about their experience on Meethi Chat.
           </p>
         </div>
 

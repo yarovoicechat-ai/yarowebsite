@@ -1,4 +1,4 @@
-import { Mail, ShieldCheck, MessageSquare, Building, Headphones, Sparkles } from 'lucide-react';
+import { Mail, ShieldCheck, Building, Headphones } from 'lucide-react';
 
 export default function Contact() {
   return (
@@ -9,7 +9,7 @@ export default function Contact() {
           <Headphones className="w-3.5 h-3.5" /> 24/7 Dedicated Support
         </div>
         <h1 className="text-4xl sm:text-5xl font-extrabold text-white">
-          Get in Touch with <span className="text-gradient">Meethi Chaat</span>
+          Get in Touch with <span className="text-gradient">Meethi Chat</span>
         </h1>
         <p className="text-zinc-400 text-base">
           Have questions, hosting inquiries, or technical feedback? Our dedicated support team is available 24/7 to assist you.

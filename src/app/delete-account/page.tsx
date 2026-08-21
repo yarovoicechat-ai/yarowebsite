@@ -1,4 +1,4 @@
-import { Trash2, Smartphone, Mail, ShieldAlert, CheckCircle2 } from 'lucide-react';
+import { Trash2, Smartphone, Mail, ShieldAlert } from 'lucide-react';
 
 export default function DeleteAccount() {
   return (
@@ -12,7 +12,7 @@ export default function DeleteAccount() {
           Account Deletion & <span className="text-gradient">Data Safety</span>
         </h1>
         <p className="text-zinc-400 text-base">
-          We respect your privacy and data ownership rights. You can easily delete your Meethi Chaat account and associated data at any time.
+          We respect your privacy and data ownership rights. You can easily delete your Meethi Chat account and associated data at any time.
         </p>
       </div>
 
@@ -33,7 +33,7 @@ export default function DeleteAccount() {
             <ol className="space-y-3 text-sm text-zinc-300">
               <li className="flex items-start gap-3">
                 <span className="w-6 h-6 rounded-full bg-pink-500/20 text-pink-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">1</span>
-                <span>Open the <strong>Meethi Chaat App</strong> on your Android mobile device.</span>
+                <span>Open the <strong>Meethi Chat App</strong> on your Android mobile device.</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="w-6 h-6 rounded-full bg-pink-500/20 text-pink-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">2</span>
