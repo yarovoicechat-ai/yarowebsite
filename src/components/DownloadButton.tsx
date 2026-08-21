@@ -10,7 +10,7 @@ interface DownloadButtonProps {
   showIcon?: boolean;
 }
 
-const DEFAULT_FALLBACK_URL = 'https://github.com/bajpeyigroupdev/management_Panel/raw/main/public/releases/MeethiChat-v1.8.3.apk';
+const DEFAULT_FALLBACK_URL = 'https://api.mithichat.live/api/v1/app-releases/download';
 
 export default function DownloadButton({
   className = '',
@@ -29,13 +29,19 @@ export default function DownloadButton({
         if (res.ok) {
           const json = await res.json();
           if (json && json.success && json.data) {
-            const liveUrl = json.data.fileUrl || json.data.downloadUrl;
-            if (liveUrl && liveUrl.startsWith('http')) {
-              // Ignore temporary tunnel URLs (loca.lt, ngrok, trycloudflare) that expire easily
-              const isTunnelUrl = /loca\.lt|ngrok|trycloudflare/i.test(liveUrl);
-              if (!isTunnelUrl) {
-                setDownloadUrl(liveUrl);
-              }
+            const apiDownloadUrl = json.data.downloadUrl;
+            const fileUrl = json.data.fileUrl;
+            
+            // Prefer api.mithichat.live direct download endpoint or valid non-tunnel link
+            let finalUrl = apiDownloadUrl || fileUrl;
+            if (fileUrl && fileUrl.startsWith('http') && !/loca\.lt|ngrok|trycloudflare/i.test(fileUrl)) {
+              finalUrl = fileUrl;
+            } else if (apiDownloadUrl && !/loca\.lt|ngrok|trycloudflare/i.test(apiDownloadUrl)) {
+              finalUrl = apiDownloadUrl;
+            }
+
+            if (finalUrl) {
+              setDownloadUrl(finalUrl);
             }
             if (json.data.versionName) {
               setVersionName(json.data.versionName);
@@ -67,6 +73,7 @@ export default function DownloadButton({
   return (
     <a
       href={downloadUrl}
+      download={`MeethiChat-v${versionName}.apk`}
       target="_blank"
       rel="noopener noreferrer"
       className={`${baseStyles} ${variantStyles} ${className}`}
