@@ -27,10 +27,10 @@ export default function Contact() {
             For account assistance, app technical feedback, and general questions.
           </p>
           <a
-            href="mailto:support@mithichat.live"
+            href="mailto:support@voicecallclub.com"
             className="block text-pink-400 font-bold text-sm hover:underline pt-2"
           >
-            support@mithichat.live
+            support@voicecallclub.com
           </a>
         </div>
 
@@ -43,10 +43,10 @@ export default function Contact() {
             Apply as an official talent host, agency leader, or coin seller partner.
           </p>
           <a
-            href="mailto:agency@mithichat.live"
+            href="mailto:agency@voicecallclub.com"
             className="block text-purple-400 font-bold text-sm hover:underline pt-2"
           >
-            agency@mithichat.live
+            agency@voicecallclub.com
           </a>
         </div>
 
@@ -59,10 +59,10 @@ export default function Contact() {
             Report safety violations, policy concerns, or account appeal requests.
           </p>
           <a
-            href="mailto:safety@mithichat.live"
+            href="mailto:safety@voicecallclub.com"
             className="block text-cyan-400 font-bold text-sm hover:underline pt-2"
           >
-            safety@mithichat.live
+            safety@voicecallclub.com
           </a>
         </div>
       </div>

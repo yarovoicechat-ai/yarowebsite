@@ -29,7 +29,7 @@ function InviteContent() {
     });
   };
 
-  const playStoreUrl = `https://play.google.com/store/apps/details?id=com.umangchatlive&referrer=utm_source%3Dmithichat%26utm_medium%3Dreferral%26utm_campaign%3Drefer_and_earn%26referralCode%3D${encodeURIComponent(inviterCode)}`;
+  const playStoreUrl = `https://play.google.com/store/apps/details?id=com.voicecallclub.app&referrer=utm_source%3Dvoicecallclub%26utm_medium%3Dreferral%26utm_campaign%3Drefer_and_earn%26referralCode%3D${encodeURIComponent(inviterCode)}`;
 
   return (
     <div className="relative min-h-[90vh] flex items-center justify-center px-4 py-8 sm:py-12 overflow-hidden bg-[#090912] text-white">

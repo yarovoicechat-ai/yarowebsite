@@ -34,14 +34,14 @@ export default function Navbar() {
             <div className="relative">
               <img
                 src="/logo.png"
-                alt="Meethi Chat Logo"
+                alt="Yaro Logo"
                 className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl border border-pink-500/40 shadow-lg shadow-pink-500/30 object-cover group-hover:scale-105 transition-transform"
               />
               <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-[#090912] animate-pulse" />
             </div>
             <div className="flex flex-col">
               <span className="text-lg sm:text-xl font-extrabold text-gradient tracking-tight">
-                Meethi Chat
+                Yaro
               </span>
               <span className="text-[9px] sm:text-[10px] text-pink-400 font-bold -mt-0.5">
                 Live Video & Voice

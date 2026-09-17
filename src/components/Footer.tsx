@@ -15,11 +15,11 @@ export default function Footer() {
             <div className="flex items-center gap-3">
               <img
                 src="/logo.png"
-                alt="Meethi Chat Logo"
+                alt="Yaro Logo"
                 className="w-12 h-12 rounded-2xl border border-pink-500/30 shadow-lg shadow-pink-500/30 object-cover"
               />
               <span className="text-xl font-extrabold text-gradient">
-                Meethi Chat
+                Yaro
               </span>
             </div>
             <p className="text-zinc-400 text-sm leading-relaxed">
@@ -48,7 +48,7 @@ export default function Footer() {
                 <Link href="/#live-stats" className="hover:text-pink-400 transition-colors">Platform Statistics</Link>
               </li>
               <li>
-                <a href="https://management.mithichat.live" target="_blank" rel="noopener noreferrer" className="hover:text-pink-400 transition-colors">Admin Portal</a>
+                <a href="https://management.voicecallclub.com" target="_blank" rel="noopener noreferrer" className="hover:text-pink-400 transition-colors">Admin Portal</a>
               </li>
             </ul>
           </div>
@@ -98,7 +98,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
           <div>
-            &copy; {new Date().getFullYear()} Meethi Chat Inc. All rights reserved.
+            &copy; {new Date().getFullYear()} Yaro Inc. All rights reserved.
           </div>
           <div className="flex items-center gap-1 text-zinc-400">
             Built with <Heart className="w-3.5 h-3.5 text-pink-500 fill-pink-500 mx-1" /> for Global Voice Communities.

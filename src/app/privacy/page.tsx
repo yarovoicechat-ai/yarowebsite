@@ -33,7 +33,7 @@ export default function PrivacyPolicy() {
     },
     {
       title: "5. Account Deletion & Data Rights",
-      content: "Users retain full rights to request complete deletion of their account and data at any time directly in the app (Profile -> Settings -> Account Security -> Delete Account) or by emailing support@mithichat.live."
+      content: "Users retain full rights to request complete deletion of their account and data at any time directly in the app (Profile -> Settings -> Account Security -> Delete Account) or by emailing support@voicecallclub.com."
     }
   ];
 
@@ -79,7 +79,7 @@ export default function PrivacyPolicy() {
       <div className="glass p-8 rounded-3xl border border-pink-500/20 text-center space-y-4">
         <h3 className="text-xl font-bold text-white">Have Privacy Questions?</h3>
         <p className="text-zinc-400 text-xs max-w-md mx-auto">
-          Contact our Data Protection Officer at <strong className="text-pink-400">privacy@mithichat.live</strong>
+          Contact our Data Protection Officer at <strong className="text-pink-400">privacy@voicecallclub.com</strong>
         </p>
       </div>
     </div>

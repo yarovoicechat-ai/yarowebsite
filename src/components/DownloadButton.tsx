@@ -25,14 +25,14 @@ export default function DownloadButton({
   useEffect(() => {
     async function fetchLatestRelease() {
       try {
-        const res = await fetch('https://api.mithichat.live/api/v1/app-releases/latest');
+        const res = await fetch('https://api.voicecallclub.com/api/v1/app-releases/latest');
         if (res.ok) {
           const json = await res.json();
           if (json && json.success && json.data) {
             const apiDownloadUrl = json.data.downloadUrl;
             const fileUrl = json.data.fileUrl;
             
-            // Prefer api.mithichat.live direct download endpoint or valid non-tunnel link
+            // Prefer api.voicecallclub.com direct download endpoint or valid non-tunnel link
             let finalUrl = apiDownloadUrl || fileUrl;
             if (fileUrl && fileUrl.startsWith('http') && !/loca\.lt|ngrok|trycloudflare/i.test(fileUrl)) {
               finalUrl = fileUrl;

@@ -65,7 +65,7 @@ export default function DeleteAccount() {
 
           <div className="bg-zinc-950/80 p-6 rounded-2xl border border-white/5 space-y-4 text-sm text-zinc-300">
             <p>
-              Send an email request to <a href="mailto:support@mithichat.live" className="text-pink-400 font-bold hover:underline">support@mithichat.live</a> with:
+              Send an email request to <a href="mailto:support@voicecallclub.com" className="text-pink-400 font-bold hover:underline">support@voicecallclub.com</a> with:
             </p>
             <ul className="list-disc list-inside space-y-1.5 text-zinc-400 text-xs">
               <li>Subject: <strong>Account & Data Deletion Request</strong></li>
