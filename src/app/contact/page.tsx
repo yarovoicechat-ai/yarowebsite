@@ -9,7 +9,7 @@ export default function Contact() {
           <Headphones className="w-3.5 h-3.5" /> 24/7 Dedicated Support
         </div>
         <h1 className="text-4xl sm:text-5xl font-extrabold text-white">
-          Get in Touch with <span className="text-gradient">Meethi Chat</span>
+          Get in Touch with <span className="text-gradient">Yaro</span>
         </h1>
         <p className="text-zinc-400 text-base">
           Have questions, hosting inquiries, or technical feedback? Our dedicated support team is available 24/7 to assist you.
@@ -27,10 +27,10 @@ export default function Contact() {
             For account assistance, app technical feedback, and general questions.
           </p>
           <a
-            href="mailto:support@voicecallclub.com"
+            href="mailto:support@yaroapp.in"
             className="block text-pink-400 font-bold text-sm hover:underline pt-2"
           >
-            support@voicecallclub.com
+            support@yaroapp.in
           </a>
         </div>
 
@@ -43,10 +43,10 @@ export default function Contact() {
             Apply as an official talent host, agency leader, or coin seller partner.
           </p>
           <a
-            href="mailto:agency@voicecallclub.com"
+            href="mailto:agency@yaroapp.in"
             className="block text-purple-400 font-bold text-sm hover:underline pt-2"
           >
-            agency@voicecallclub.com
+            agency@yaroapp.in
           </a>
         </div>
 
@@ -59,10 +59,10 @@ export default function Contact() {
             Report safety violations, policy concerns, or account appeal requests.
           </p>
           <a
-            href="mailto:safety@voicecallclub.com"
+            href="mailto:safety@yaroapp.in"
             className="block text-cyan-400 font-bold text-sm hover:underline pt-2"
           >
-            safety@voicecallclub.com
+            safety@yaroapp.in
           </a>
         </div>
       </div>

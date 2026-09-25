@@ -121,7 +121,7 @@ export default function HostEarningsCalculator() {
               </div>
 
               <a
-                href="mailto:agency@voicecallclub.com?subject=Official%20Host%20Application"
+                href="mailto:agency@yaroapp.in?subject=Official%20Host%20Application"
                 className="btn-gold w-full py-3.5 rounded-full text-sm font-extrabold flex items-center justify-center gap-2"
               >
                 Apply for Official Host Badge

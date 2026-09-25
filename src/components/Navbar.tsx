@@ -35,9 +35,9 @@ export default function Navbar() {
               <img
                 src="/logo.png"
                 alt="Yaro Logo"
-                className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl border border-pink-500/40 shadow-lg shadow-pink-500/30 object-cover group-hover:scale-105 transition-transform"
+                className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl border-2 border-pink-500/50 shadow-lg shadow-pink-500/30 object-cover group-hover:scale-105 transition-transform"
               />
-              <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-[#090912] animate-pulse" />
+              <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-[#080414] animate-pulse" />
             </div>
             <div className="flex flex-col">
               <span className="text-lg sm:text-xl font-extrabold text-gradient tracking-tight">
@@ -57,6 +57,9 @@ export default function Navbar() {
               </Link>
               <Link href="/#features" className="hover:text-pink-400 transition-colors py-1">
                 Features
+              </Link>
+              <Link href="/#store" className="hover:text-pink-400 transition-colors py-1">
+                Virtual Store
               </Link>
               <Link href="/#calculator" className="hover:text-pink-400 transition-colors py-1">
                 Host Income
@@ -120,6 +123,13 @@ export default function Navbar() {
               className="text-zinc-200 font-semibold text-sm py-1.5 hover:text-pink-400 border-b border-white/5"
             >
               Contact Us
+            </Link>
+            <Link
+              href="/delete-account"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-zinc-400 text-xs py-1.5 hover:text-rose-400 border-b border-white/5 flex items-center gap-1.5"
+            >
+              Delete Account Request
             </Link>
             <div className="pt-1">
               <DownloadButton variant="primary" className="w-full text-xs py-3" />

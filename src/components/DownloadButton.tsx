@@ -19,20 +19,21 @@ export default function DownloadButton({
   showIcon = true,
 }: DownloadButtonProps) {
   const [downloadUrl, setDownloadUrl] = useState<string>(DEFAULT_FALLBACK_URL);
-  const [versionName, setVersionName] = useState<string>('1.8.4');
+  const [versionName, setVersionName] = useState<string>('0.0.2');
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     async function fetchLatestRelease() {
       try {
-        const res = await fetch('https://api.voicecallclub.com/api/v1/app-releases/latest');
+        const apiBase = process.env.NEXT_PUBLIC_API_BASE_URL || 'https://api.yaroapp.in';
+        const res = await fetch(`${apiBase}/api/v1/app-releases/latest`);
         if (res.ok) {
           const json = await res.json();
           if (json && json.success && json.data) {
             const apiDownloadUrl = json.data.downloadUrl;
             const fileUrl = json.data.fileUrl;
             
-            // Prefer api.voicecallclub.com direct download endpoint or valid non-tunnel link
+            // Prefer api.yaroapp.in direct download endpoint or valid non-tunnel link
             let finalUrl = apiDownloadUrl || fileUrl;
             if (fileUrl && fileUrl.startsWith('http') && !/loca\.lt|ngrok|trycloudflare/i.test(fileUrl)) {
               finalUrl = fileUrl;
@@ -73,11 +74,11 @@ export default function DownloadButton({
   return (
     <a
       href={downloadUrl}
-      download={`MeethiChat-v${versionName}.apk`}
+      download={`Yaro-v${versionName}.apk`}
       target="_blank"
       rel="noopener noreferrer"
       className={`${baseStyles} ${variantStyles} ${className}`}
-      title={`Download Meethi Chat APK v${versionName}`}
+      title={`Download Yaro App APK v${versionName}`}
     >
       {showIcon && <Download className="w-5 h-5 text-white animate-bounce shrink-0" />}
       <span>{children || `Download Android App v${versionName}`}</span>

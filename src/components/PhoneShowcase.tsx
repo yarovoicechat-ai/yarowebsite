@@ -41,12 +41,12 @@ export default function PhoneShowcase() {
         {/* Live Voice Call Header */}
         <div className="bg-gradient-to-r from-pink-950/50 via-purple-950/50 to-zinc-900/70 p-3 rounded-2xl border border-pink-500/30 flex items-center justify-between mb-4">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-full bg-pink-500/20 border border-pink-500/40 flex items-center justify-center">
-              <PhoneCall className="w-4 h-4 text-pink-400 animate-pulse" />
+            <div className="w-8 h-8 rounded-xl border border-pink-500/50 flex items-center justify-center overflow-hidden shadow-md shadow-pink-500/30 shrink-0">
+              <img src="/logo.png" alt="Yaro" className="w-full h-full object-cover" />
             </div>
             <div>
               <div className="text-xs font-bold text-white flex items-center gap-1">
-                HD Voice Call
+                Yaro Live Party
                 <Sparkles className="w-3 h-3 text-yellow-400 fill-yellow-400" />
               </div>
               <div className="text-[10px] text-emerald-400 font-bold font-mono">

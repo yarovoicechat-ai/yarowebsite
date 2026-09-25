@@ -11,22 +11,29 @@ export default function BuildDownloadCard() {
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 relative z-10">
-        <div className="space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-extrabold tracking-wide">
-            <CheckCircle2 className="w-4 h-4 shrink-0" />
-            Official Verified Android App • Meethi Chat Karo
+        <div className="flex items-start gap-4">
+          <img
+            src="/logo.png"
+            alt="Yaro Logo"
+            className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl border-2 border-pink-500/50 shadow-2xl shadow-pink-500/40 object-cover shrink-0"
+          />
+          <div className="space-y-2">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-extrabold tracking-wide">
+              <CheckCircle2 className="w-4 h-4 shrink-0" />
+              Official Verified Android App • Yaro
+            </div>
+            <h3 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+              Yaro Android <span className="text-gradient">v0.0.2</span>
+            </h3>
+            <p className="text-zinc-300 text-sm max-w-xl leading-relaxed">
+              Experience real-time Ultra HD audio calls, 9-seat voice party lounges, luxury 3D animated gifts, and fast creator earnings. 100% Google Play Protect safe.
+            </p>
           </div>
-          <h3 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Meethi Chat Android <span className="text-gradient">v1.8.4</span>
-          </h3>
-          <p className="text-zinc-300 text-sm max-w-xl leading-relaxed">
-            Experience real-time Ultra HD audio calls, 9-seat voice party lounges, luxury 3D animated gifts, and fast creator earnings. 100% Google Play Protect safe.
-          </p>
         </div>
 
         <div className="shrink-0 flex flex-col items-center md:items-end gap-3">
           <DownloadButton variant="primary" className="py-4 px-10 text-base font-extrabold shadow-2xl">
-            Download Meethi Chat App
+            Download Yaro App
           </DownloadButton>
           <div className="text-[11px] text-zinc-400 font-medium flex items-center gap-1.5">
             <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
@@ -40,7 +47,7 @@ export default function BuildDownloadCard() {
         <div className="bg-zinc-950/80 p-4 rounded-2xl border border-white/5 space-y-1 hover:border-pink-500/30 transition">
           <span className="text-zinc-400 block text-[11px] font-semibold">Latest Build</span>
           <span className="text-white font-extrabold flex items-center gap-1.5 text-sm">
-            <FileCode className="w-4 h-4 text-pink-400" /> v1.8.4 Stable
+            <FileCode className="w-4 h-4 text-pink-400" /> v0.0.2 Stable
           </span>
         </div>
 

@@ -1,11 +1,11 @@
 module.exports = {
   apps: [
     {
-      name: "meethi-chaat-web",
+      name: "yaro-web",
       script: "npm",
       args: "start",
       env: {
-        PORT: 3005,
+        PORT: 3105,
         NODE_ENV: "production"
       }
     }

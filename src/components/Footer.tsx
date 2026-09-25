@@ -3,10 +3,10 @@ import { ShieldCheck, Heart, Lock, CheckCircle2 } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#050508] border-t border-white/10 pt-16 pb-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden mt-32">
+    <footer className="bg-[#070312] border-t border-pink-500/15 pt-16 pb-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden mt-32">
       {/* Background Decorative Glows */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-pink-600/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-pink-600/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-600/15 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto space-y-12 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
@@ -16,7 +16,7 @@ export default function Footer() {
               <img
                 src="/logo.png"
                 alt="Yaro Logo"
-                className="w-12 h-12 rounded-2xl border border-pink-500/30 shadow-lg shadow-pink-500/30 object-cover"
+                className="w-12 h-12 rounded-2xl border-2 border-pink-500/50 shadow-xl shadow-pink-500/30 object-cover"
               />
               <span className="text-xl font-extrabold text-gradient">
                 Yaro
@@ -48,7 +48,7 @@ export default function Footer() {
                 <Link href="/#live-stats" className="hover:text-pink-400 transition-colors">Platform Statistics</Link>
               </li>
               <li>
-                <a href="https://management.voicecallclub.com" target="_blank" rel="noopener noreferrer" className="hover:text-pink-400 transition-colors">Admin Portal</a>
+                <a href="https://management.yaroapp.in" target="_blank" rel="noopener noreferrer" className="hover:text-pink-400 transition-colors">Admin Portal</a>
               </li>
             </ul>
           </div>
@@ -82,7 +82,7 @@ export default function Footer() {
           <div className="space-y-3">
             <h4 className="text-white font-bold text-sm uppercase tracking-wider">Security & Download</h4>
             <p className="text-zinc-400 text-xs leading-relaxed">
-              Official Android package (APK v1.8.4) verified for virus-free, secure deployment.
+              Official Android package (APK v0.0.2) verified for virus-free, secure deployment.
             </p>
             <div className="p-3 rounded-2xl glass border border-white/10 space-y-1.5">
               <div className="flex items-center gap-2 text-xs text-zinc-200 font-semibold">

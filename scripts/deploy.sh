@@ -6,7 +6,7 @@ set -e
 echo "🚀 Starting Automated Website CI/CD Deployment..."
 
 # 1. Navigate to live website directory
-CD_DIR="/root/apps/meethi-chaat-web"
+CD_DIR="/root/apps/Yaro/YaroWebsite"
 cd "$CD_DIR"
 echo "📂 Working Directory: $CD_DIR"
 
@@ -24,8 +24,8 @@ npm install --production=false
 echo "🏗️ Building Next.js Production Bundle..."
 npm run build
 
-# 5. Reload / Restart PM2 Process on Port 3005
-echo "🔄 Restarting PM2 [web-frontend] on Port 3005..."
-PORT=3005 pm2 restart web-frontend --update-env || PORT=3005 pm2 start npm --name "web-frontend" -- start
+# 5. Reload / Restart PM2 Process on Port 3105
+echo "🔄 Restarting PM2 [yaro-web] on Port 3105..."
+PORT=3105 pm2 restart yaro-web --update-env || PORT=3105 pm2 start npm --name "yaro-web" -- start
 
-echo "🎉 SUCCESS! Meethi Chat Website CI/CD Deployment Finished & Live!"
+echo "🎉 SUCCESS! Yaro Website CI/CD Deployment Finished & Live!"

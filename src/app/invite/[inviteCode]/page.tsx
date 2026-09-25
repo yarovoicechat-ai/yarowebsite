@@ -1,25 +1,31 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
-import { useState, Suspense, useEffect } from 'react';
+import { useState, useEffect, use } from 'react';
 import { Copy, Check, ShieldCheck, Sparkles, PhoneCall, Gift, Users, Trophy } from 'lucide-react';
 
-function InviteContent() {
+export default function ReferPage({ params }: { params: Promise<{ inviteCode?: string, referralCode?: string }> }) {
+  const resolvedParams = use(params);
   const searchParams = useSearchParams();
-  const inviterCode = (searchParams.get('ref') || searchParams.get('code') || 'YARO').trim().toUpperCase();
+  
+  const rawCode = resolvedParams?.inviteCode || resolvedParams?.referralCode || searchParams.get('ref') || searchParams.get('code') || '';
+  const inviterCode = String(rawCode).trim().toUpperCase();
 
   const [copied, setCopied] = useState(false);
 
+  // Validate code syntax (alphanumeric, 3-20 chars)
   const isValidCode = /^[A-Z0-9_-]{3,20}$/.test(inviterCode);
 
   const playStoreUrl = isValidCode
-    ? `https://play.google.com/store/apps/details?id=yaro.vc.app&referrer=utm_source%3Dyaro%26utm_medium%3Dreferral%26utm_campaign%3Dinvite%26referralCode%3D${encodeURIComponent(inviterCode)}`
+    ? `https://play.google.com/store/apps/details?id=yaro.vc.app&referrer=utm_source%3Dyaro%26utm_medium%3Dreferral%26utm_campaign%3Drefer_and_earn%26referralCode%3D${encodeURIComponent(inviterCode)}`
     : `https://play.google.com/store/apps/details?id=yaro.vc.app`;
 
+  const customSchemeUrl = `yaro://refer/${inviterCode}`;
   const androidIntentUrl = `intent://refer/${inviterCode}#Intent;scheme=yaro;package=yaro.vc.app;S.browser_fallback_url=${encodeURIComponent(playStoreUrl)};end`;
 
   useEffect(() => {
     if (typeof window === 'undefined' || !isValidCode) return;
+
     const isAndroid = /android/i.test(navigator.userAgent);
     if (isAndroid) {
       window.location.href = androidIntentUrl;
@@ -27,6 +33,7 @@ function InviteContent() {
   }, [isValidCode, androidIntentUrl]);
 
   const handleCopy = () => {
+    if (!isValidCode) return;
     navigator.clipboard.writeText(inviterCode).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2500);
@@ -69,8 +76,8 @@ function InviteContent() {
             You've Been Invited to <span className="bg-gradient-to-r from-pink-500 to-purple-400 bg-clip-text text-transparent">Yaro</span>
           </h1>
           <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
-            Download Yaro App, complete setup using referral code{' '}
-            <span className="font-mono font-extrabold text-cyan-300 px-1.5 py-0.5 rounded bg-cyan-500/10 border border-cyan-500/30">{inviterCode}</span> & start live chatting!
+            Download Yaro App, enter referral code{' '}
+            <span className="font-mono font-extrabold text-cyan-300 px-1.5 py-0.5 rounded bg-cyan-500/10 border border-cyan-500/30">{inviterCode || 'YARO'}</span> & claim your welcome bonus!
           </p>
         </div>
 
@@ -163,17 +170,5 @@ function InviteContent() {
         </div>
       )}
     </div>
-  );
-}
-
-export default function InvitePage() {
-  return (
-    <Suspense fallback={
-      <div className="min-h-[85vh] flex items-center justify-center text-slate-400 text-sm">
-        Loading referral details...
-      </div>
-    }>
-      <InviteContent />
-    </Suspense>
   );
 }

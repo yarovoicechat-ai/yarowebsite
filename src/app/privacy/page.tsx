@@ -4,14 +4,14 @@ export default function PrivacyPolicy() {
   const sections = [
     {
       title: "1. Overview & Commitment to Privacy",
-      content: "Welcome to Meethi Chat (\"we,\" \"our,\" or \"us\"). We are committed to safeguarding user data, ensuring maximum transparency, and upholding international privacy standards. This Privacy Policy details how we collect, handle, and protect your information when you use our mobile application and related services."
+      content: "Welcome to Yaro (\"we,\" \"our,\" or \"us\"). We are committed to safeguarding user data, ensuring maximum transparency, and upholding international privacy standards. This Privacy Policy details how we collect, handle, and protect your information when you use our mobile application and related services."
     },
     {
       title: "2. Information We Collect",
       subsections: [
         {
           subtitle: "Real-Time Microphone & Audio Data",
-          text: "Meethi Chat is an interactive voice chat platform requiring microphone access (android.permission.RECORD_AUDIO). Audio data is processed strictly in real-time for live voice communication. Voice calls and room conversations are NEVER recorded or stored on our servers."
+          text: "Yaro is an interactive voice chat platform requiring microphone access (android.permission.RECORD_AUDIO). Audio data is processed strictly in real-time for live voice communication. Voice calls and room conversations are NEVER recorded or stored on our servers."
         },
         {
           subtitle: "Account & Profile Information",
@@ -33,7 +33,7 @@ export default function PrivacyPolicy() {
     },
     {
       title: "5. Account Deletion & Data Rights",
-      content: "Users retain full rights to request complete deletion of their account and data at any time directly in the app (Profile -> Settings -> Account Security -> Delete Account) or by emailing support@voicecallclub.com."
+      content: "Users retain full rights to request complete deletion of their account and data at any time directly in the app (Profile -> Settings -> Account Security -> Delete Account) or by emailing support@yaroapp.in."
     }
   ];
 
@@ -76,10 +76,36 @@ export default function PrivacyPolicy() {
         ))}
       </div>
 
+      {/* Account Deletion Notice Box */}
+      <div className="glass p-8 rounded-3xl border border-rose-500/30 bg-rose-950/20 space-y-4">
+        <div className="flex items-center gap-3">
+          <span className="p-2.5 rounded-xl bg-rose-500/20 text-rose-400">
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+            </svg>
+          </span>
+          <div>
+            <h3 className="text-lg font-bold text-white">Account & Personal Data Deletion</h3>
+            <p className="text-xs text-zinc-400">Google Play User Data Policy Compliance</p>
+          </div>
+        </div>
+        <p className="text-zinc-300 text-sm leading-relaxed">
+          Users have the right to request permanent deletion of their account and all associated personal data at any time, even if they have uninstalled the Yaro application.
+        </p>
+        <div className="pt-2">
+          <a
+            href="/delete-account"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-rose-600 hover:bg-rose-500 text-white text-xs font-black uppercase tracking-wider shadow-lg shadow-rose-600/30 transition"
+          >
+            Open Data Deletion Portal &rarr;
+          </a>
+        </div>
+      </div>
+
       <div className="glass p-8 rounded-3xl border border-pink-500/20 text-center space-y-4">
         <h3 className="text-xl font-bold text-white">Have Privacy Questions?</h3>
         <p className="text-zinc-400 text-xs max-w-md mx-auto">
-          Contact our Data Protection Officer at <strong className="text-pink-400">privacy@voicecallclub.com</strong>
+          Contact our Data Protection Officer at <strong className="text-pink-400">privacy@yaroapp.in</strong>
         </p>
       </div>
     </div>

@@ -24,18 +24,18 @@ export default function FloatingDownloadBar() {
 
   return (
     <div className="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 z-40 max-w-md animate-in slide-in-from-bottom-6 duration-300">
-      <div className="glass p-4 rounded-3xl border border-pink-500/30 bg-[#090912]/90 shadow-2xl backdrop-blur-2xl flex items-center justify-between gap-4">
+      <div className="glass p-4 rounded-3xl border border-pink-500/30 bg-[#080414]/95 shadow-2xl backdrop-blur-2xl flex items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <img
             src="/logo.png"
-            alt="Meethi Chat App Icon"
-            className="w-11 h-11 rounded-2xl border border-pink-500/30 shadow-md shadow-pink-500/30 object-cover shrink-0"
+            alt="Yaro App Icon"
+            className="w-11 h-11 rounded-2xl border-2 border-pink-500/50 shadow-lg shadow-pink-500/30 object-cover shrink-0"
           />
           <div>
             <div className="text-xs font-extrabold text-white flex items-center gap-1.5">
-              Meethi Chat App
+              Yaro App
               <span className="text-[10px] px-1.5 py-0.2 rounded bg-pink-500/20 text-pink-400 font-bold">
-                v1.8.4
+                v0.0.2
               </span>
             </div>
             <div className="text-[10px] text-zinc-400 flex items-center gap-1">

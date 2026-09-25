@@ -11,6 +11,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://yaroapp.in'),
   title: "Yaro - Connect, Voice Chat & Live Entertainment",
   description: "Experience crystal-clear 1-on-1 voice calls, live 9-seat audio party rooms, 3D animated virtual gifts, and fast creator earnings with Yaro.",
   icons: {

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Navigate to live website directory
-cd /root/apps/meethi-chaat-web
+cd /root/apps/Yaro/YaroWebsite
 
 # Fetch latest commits from remote
 git fetch origin main > /dev/null 2>&1 || exit 0
@@ -15,6 +15,6 @@ if [ "$LOCAL" != "$REMOTE" ]; then
     git pull origin main
     npm install --production=false
     npm run build
-    PORT=3005 pm2 restart web-frontend --update-env
+    PORT=3105 pm2 restart yaro-web --update-env
     echo "🎉 Auto-Sync Deployment Completed Successfully!"
 fi

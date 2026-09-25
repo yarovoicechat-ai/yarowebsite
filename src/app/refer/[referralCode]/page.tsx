@@ -1,9 +1,8 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
-import { useState, use } from 'react';
-import Image from 'next/image';
-import { Copy, Check, ShieldCheck, Sparkles, PhoneCall, Gift, Users, Trophy, Download } from 'lucide-react';
+import { useState, useEffect, use } from 'react';
+import { Copy, Check, ShieldCheck, Sparkles, PhoneCall, Gift, Users, Trophy } from 'lucide-react';
 
 export default function ReferPage({ params }: { params: Promise<{ referralCode: string }> }) {
   const resolvedParams = use(params);
@@ -11,12 +10,27 @@ export default function ReferPage({ params }: { params: Promise<{ referralCode: 
   
   const rawCode = resolvedParams?.referralCode || searchParams.get('ref') || searchParams.get('code') || '';
   const inviterCode = String(rawCode).trim().toUpperCase();
-  const inviterName = searchParams.get('name') || searchParams.get('referrer') || 'A Friend';
 
   const [copied, setCopied] = useState(false);
 
   // Validate code syntax (alphanumeric, 3-20 chars)
   const isValidCode = /^[A-Z0-9_-]{3,20}$/.test(inviterCode);
+
+  const playStoreUrl = isValidCode
+    ? `https://play.google.com/store/apps/details?id=yaro.vc.app&referrer=utm_source%3Dyaro%26utm_medium%3Dreferral%26utm_campaign%3Drefer_and_earn%26referralCode%3D${encodeURIComponent(inviterCode)}`
+    : `https://play.google.com/store/apps/details?id=yaro.vc.app`;
+
+  const customSchemeUrl = `yaro://refer/${inviterCode}`;
+  const androidIntentUrl = `intent://refer/${inviterCode}#Intent;scheme=yaro;package=yaro.vc.app;S.browser_fallback_url=${encodeURIComponent(playStoreUrl)};end`;
+
+  useEffect(() => {
+    if (typeof window === 'undefined' || !isValidCode) return;
+
+    const isAndroid = /android/i.test(navigator.userAgent);
+    if (isAndroid) {
+      window.location.href = androidIntentUrl;
+    }
+  }, [isValidCode, androidIntentUrl]);
 
   const handleCopy = () => {
     if (!isValidCode) return;
@@ -35,10 +49,6 @@ export default function ReferPage({ params }: { params: Promise<{ referralCode: 
     });
   };
 
-  const playStoreUrl = isValidCode
-    ? `https://play.google.com/store/apps/details?id=com.voicecallclub.app&referrer=utm_source%3Dvoicecallclub%26utm_medium%3Dreferral%26utm_campaign%3Drefer_and_earn%26referralCode%3D${encodeURIComponent(inviterCode)}`
-    : `https://play.google.com/store/apps/details?id=com.voicecallclub.app`;
-
   return (
     <div className="relative min-h-[90vh] flex items-center justify-center px-4 py-8 sm:py-12 overflow-hidden bg-[#090912] text-white">
       {/* Dynamic Animated Ambient Lights */}
@@ -47,194 +57,109 @@ export default function ReferPage({ params }: { params: Promise<{ referralCode: 
 
       <div className="relative z-10 w-full max-w-lg bg-slate-900/85 backdrop-blur-2xl border border-slate-700/60 rounded-3xl p-6 sm:p-8 shadow-2xl shadow-pink-500/10 text-center space-y-6">
         
-        {/* Top Floating Badge */}
-        <div className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-pink-500/20 via-purple-500/20 to-cyan-500/20 border border-pink-500/40 text-pink-300 font-extrabold text-xs tracking-wider uppercase shadow-md shadow-pink-500/10">
-          <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-spin" style={{ animationDuration: '4s' }} />
-          Special Invitation Bonus
+        {/* Top Floating Badge & Logo */}
+        <div className="flex flex-col items-center gap-3">
+          <img
+            src="/logo.png"
+            alt="Yaro Logo"
+            className="w-16 h-16 rounded-2xl border-2 border-pink-500/50 shadow-xl shadow-pink-500/30 object-cover"
+          />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-500/15 border border-pink-500/30 text-pink-300 text-xs font-bold tracking-wide">
+            <Sparkles className="w-3.5 h-3.5 text-pink-400" />
+            OFFICIAL YARO INVITATION
+          </div>
         </div>
 
-        {!isValidCode ? (
-          /* Invalid Referral Code Error Screen */
-          <div className="space-y-5 py-4">
-            <div className="w-16 h-16 rounded-2xl bg-rose-500/20 border border-rose-500/40 flex items-center justify-center mx-auto text-rose-400 text-3xl shadow-lg">
-              ⚠️
-            </div>
-            <h2 className="text-xl font-extrabold text-white">Invalid or Expired Referral Link</h2>
-            <p className="text-xs text-slate-300 leading-relaxed max-w-xs mx-auto">
-              The referral code in this link is invalid. You can still download Meethi Chat & join live audio and video chatting!
-            </p>
-            <a
-              href="https://play.google.com/store/apps/details?id=com.umangchatlive"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2.5 w-full bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 text-white py-3.5 px-6 rounded-2xl font-bold text-sm shadow-xl transition-all"
-            >
-              <Download className="w-4 h-4" /> Download Meethi Chat on Google Play
-            </a>
-          </div>
-        ) : (
-          /* Normal Referral Campaign UI */
-          <>
-            {/* Inviter Info Header Card */}
-            <div className="flex items-center gap-3.5 bg-slate-800/60 border border-slate-700/80 rounded-2xl p-3.5 text-left shadow-inner">
-              <div className="w-12 h-12 rounded-2xl overflow-hidden border-2 border-pink-500 bg-slate-900 shrink-0 relative flex items-center justify-center font-black text-xl text-pink-400 shadow-md">
-                <Image
-                  src="/logo.png"
-                  alt="Meethi Chat"
-                  fill
-                  className="object-cover"
-                  onError={(e) => {
-                    (e.target as HTMLElement).style.display = 'none';
-                  }}
-                />
-                {inviterName?.[0]?.toUpperCase() || 'M'}
-              </div>
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-1.5">
-                  <h4 className="font-bold text-slate-100 text-base truncate">{inviterName}</h4>
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
-                </div>
-                <p className="text-xs text-purple-300">invited you to join Meethi Chat!</p>
-              </div>
-            </div>
+        {/* Hero Header */}
+        <div>
+          <h1 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
+            You've Been Invited to <span className="bg-gradient-to-r from-pink-500 to-purple-400 bg-clip-text text-transparent">Yaro</span>
+          </h1>
+          <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+            Download Yaro App, enter referral code{' '}
+            <span className="font-mono font-extrabold text-cyan-300 px-1.5 py-0.5 rounded bg-cyan-500/10 border border-cyan-500/30">{inviterCode || 'YARO'}</span> & claim your welcome bonus!
+          </p>
+        </div>
 
-            {/* Main Headline */}
-            <div>
-              <h1 className="text-2xl sm:text-3xl font-black bg-gradient-to-r from-white via-pink-200 to-amber-300 bg-clip-text text-transparent leading-tight tracking-tight">
-                Get 100 Free Welcome Coins!
-              </h1>
-              <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
-                Download Meethi Chat, complete your profile using referral code{' '}
-                <span className="font-mono font-extrabold text-cyan-300 px-1.5 py-0.5 rounded bg-cyan-500/10 border border-cyan-500/30">{inviterCode}</span> & start live chatting!
+        {/* Sign-Up Reward Highlight Banner */}
+        <div className="bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 rounded-2xl p-4 sm:p-5 shadow-xl shadow-pink-600/25 text-white relative overflow-hidden border border-pink-400/30">
+          <div className="absolute -right-6 -bottom-6 w-24 h-24 bg-amber-400/20 rounded-full blur-xl pointer-events-none" />
+          <div className="flex items-center justify-between gap-3 relative z-10">
+            <div className="text-left">
+              <p className="text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-pink-200">
+                YOUR SIGN-UP BONUS REWARD
+              </p>
+              <p className="text-2xl sm:text-3xl font-black text-amber-300 drop-shadow-md mt-0.5 tracking-tight">
+                +100 WELCOME COINS
               </p>
             </div>
-
-            {/* Sign-Up Reward Highlight Banner */}
-            <div className="bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 rounded-2xl p-4 sm:p-5 shadow-xl shadow-pink-600/25 text-white relative overflow-hidden border border-pink-400/30">
-              <div className="absolute -right-6 -bottom-6 w-24 h-24 bg-amber-400/20 rounded-full blur-xl pointer-events-none" />
-              <div className="flex items-center justify-between gap-3 relative z-10">
-                <div className="text-left">
-                  <p className="text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-pink-200">
-                    YOUR SIGN-UP BONUS REWARD
-                  </p>
-                  <p className="text-2xl sm:text-3xl font-black text-amber-300 drop-shadow-md mt-0.5 tracking-tight">
-                    +100 WELCOME COINS
-                  </p>
-                </div>
-                <div className="w-12 h-12 rounded-2xl bg-amber-400/20 border border-amber-400/40 flex items-center justify-center text-amber-300 font-bold text-2xl shrink-0 shadow-lg animate-bounce" style={{ animationDuration: '3s' }}>
-                  🪙
-                </div>
-              </div>
+            <div className="w-12 h-12 rounded-2xl bg-amber-400/20 border border-amber-400/40 flex items-center justify-center text-amber-300 font-bold text-2xl shrink-0 shadow-lg animate-bounce" style={{ animationDuration: '3s' }}>
+              🪙
             </div>
+          </div>
+        </div>
 
-            {/* Referral Code Box with 1-Tap Copy */}
-            <div className="bg-slate-950/90 border-2 border-dashed border-cyan-500/60 rounded-2xl p-4 flex items-center justify-between gap-3 shadow-inner">
-              <div className="text-left min-w-0">
-                <p className="text-[9px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-widest">REFERRAL CODE</p>
-                <p className="text-xl sm:text-2xl font-mono font-black tracking-widest text-cyan-300 truncate">{inviterCode}</p>
-              </div>
-              <button
-                onClick={handleCopy}
-                className={`px-4 py-2.5 rounded-xl font-extrabold text-xs flex items-center gap-1.5 transition-all active:scale-95 shrink-0 shadow-md ${
-                  copied
-                    ? 'bg-emerald-500 text-white border border-emerald-400'
-                    : 'bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white'
-                }`}
-              >
-                {copied ? (
-                  <>
-                    <Check className="w-4 h-4" /> COPIED!
-                  </>
-                ) : (
-                  <>
-                    <Copy className="w-4 h-4" /> COPY CODE
-                  </>
-                )}
-              </button>
-            </div>
+        {/* Referral Code Box with 1-Tap Copy */}
+        <div className="bg-slate-950/90 border-2 border-dashed border-cyan-500/60 rounded-2xl p-4 flex items-center justify-between gap-3 shadow-inner">
+          <div className="text-left min-w-0">
+            <p className="text-[9px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-widest">REFERRAL CODE</p>
+            <p className="text-xl sm:text-2xl font-mono font-black tracking-widest text-cyan-300 truncate">{inviterCode}</p>
+          </div>
+          <button
+            onClick={handleCopy}
+            className={`px-4 py-2.5 rounded-xl font-extrabold text-xs flex items-center gap-1.5 transition-all active:scale-95 shrink-0 shadow-md ${
+              copied
+                ? 'bg-emerald-500 text-white border border-emerald-400'
+                : 'bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white'
+            }`}
+          >
+            {copied ? (
+              <>
+                <Check className="w-4 h-4" /> COPIED!
+              </>
+            ) : (
+              <>
+                <Copy className="w-4 h-4" /> COPY CODE
+              </>
+            )}
+          </button>
+        </div>
 
-            {/* Official Google Play Store Button */}
-            <a
-              href={playStoreUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-3 w-full bg-slate-950 hover:bg-black border-2 border-slate-700 hover:border-pink-500 text-white py-4 px-6 rounded-2xl font-extrabold text-base shadow-2xl transition-all hover:-translate-y-0.5 active:translate-y-0 group"
-            >
-              <svg className="w-7 h-7 group-hover:scale-110 transition-transform" viewBox="0 0 512 512" fill="none">
-                <path d="M325.8 243.8L61.4 382.4C44 391.6 32 376.6 32 355.6V156.4C32 135.4 44 120.4 61.4 129.6L325.8 268.2C338.4 274.8 338.4 287.2 325.8 293.8L325.8 243.8Z" fill="#00D2FF"/>
-                <path d="M380.2 215.2L325.8 243.8L325.8 293.8L380.2 322.4C398.8 332.2 416 322.2 416 300.8V236.8C416 215.4 398.8 205.4 380.2 215.2Z" fill="#FFD000"/>
-                <path d="M61.4 129.6L246 256L325.8 215.2L61.4 129.6Z" fill="#00F076"/>
-                <path d="M61.4 382.4L325.8 296.8L246 256L61.4 382.4Z" fill="#FF3A44"/>
-              </svg>
-              Get it on Google Play
-            </a>
+        {/* Official Google Play Store Button */}
+        <a
+          href={playStoreUrl}
+          className="flex items-center justify-center gap-3 w-full bg-slate-950 hover:bg-black border-2 border-slate-700 hover:border-pink-500 text-white py-4 px-6 rounded-2xl font-extrabold text-base shadow-2xl transition-all hover:-translate-y-0.5 active:translate-y-0 group"
+        >
+          <svg className="w-7 h-7 group-hover:scale-110 transition-transform" viewBox="0 0 512 512" fill="none">
+            <path d="M325.8 243.8L61.4 382.4C44 391.6 32 376.6 32 355.6V156.4C32 135.4 44 120.4 61.4 129.6L325.8 268.2C338.4 274.8 338.4 287.2 325.8 293.8L325.8 243.8Z" fill="#00D2FF"/>
+            <path d="M380.2 215.2L325.8 243.8L325.8 293.8L380.2 322.4C398.8 332.2 416 322.2 416 300.8V236.8C416 215.4 398.8 205.4 380.2 215.2Z" fill="#FFD000"/>
+            <path d="M61.4 129.6L246 256L325.8 215.2L61.4 129.6Z" fill="#00F076"/>
+            <path d="M61.4 382.4L325.8 296.8L246 256L61.4 382.4Z" fill="#FF3A44"/>
+          </svg>
+          Get it on Google Play
+        </a>
 
-            {/* 2-Step Reward Infographic Cards */}
-            <div className="bg-slate-950/60 border border-slate-800 rounded-2xl p-4 text-left space-y-3.5">
-              <div className="flex items-center justify-between">
-                <p className="text-[11px] font-black text-slate-400 uppercase tracking-widest flex items-center gap-1.5">
-                  <Trophy className="w-3.5 h-3.5 text-amber-400" />
-                  HOW REWARDS WORK
-                </p>
-                <span className="text-[10px] font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
-                  Instant Credit
-                </span>
-              </div>
+        {/* Feature Highlights Grid */}
+        <div className="grid grid-cols-3 gap-2">
+          <div className="bg-slate-950/70 border border-slate-800/80 rounded-xl p-2.5 text-center">
+            <PhoneCall className="w-4 h-4 text-pink-400 mx-auto" />
+            <div className="text-[10px] font-bold text-slate-200 mt-1">HD Video Calls</div>
+          </div>
+          <div className="bg-slate-950/70 border border-slate-800/80 rounded-xl p-2.5 text-center">
+            <Users className="w-4 h-4 text-cyan-400 mx-auto" />
+            <div className="text-[10px] font-bold text-slate-200 mt-1">Live Audio Party</div>
+          </div>
+          <div className="bg-slate-950/70 border border-slate-800/80 rounded-xl p-2.5 text-center">
+            <Gift className="w-4 h-4 text-amber-400 mx-auto" />
+            <div className="text-[10px] font-bold text-slate-200 mt-1">3D Virtual Gifts</div>
+          </div>
+        </div>
 
-              <div className="flex items-start gap-3 bg-slate-900/60 border border-slate-800/80 rounded-xl p-3">
-                <div className="w-7 h-7 rounded-xl bg-pink-500/20 border border-pink-500 text-pink-400 flex items-center justify-center font-extrabold text-xs shrink-0 shadow">
-                  1
-                </div>
-                <div>
-                  <h5 className="text-xs font-bold text-slate-100 flex items-center gap-1.5">
-                    Download & Register
-                    <span className="text-[10px] font-extrabold text-amber-400">+100 Coins</span>
-                  </h5>
-                  <p className="text-[11px] text-slate-300 leading-relaxed mt-0.5">
-                    Install Meethi Chat & enter code <strong className="text-pink-300 font-mono">{inviterCode}</strong> during setup. You get 100 Welcome Coins, Inviter gets 25 Coins!
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3 bg-slate-900/60 border border-slate-800/80 rounded-xl p-3">
-                <div className="w-7 h-7 rounded-xl bg-cyan-500/20 border border-cyan-500 text-cyan-300 flex items-center justify-center font-extrabold text-xs shrink-0 shadow">
-                  2
-                </div>
-                <div>
-                  <h5 className="text-xs font-bold text-slate-100 flex items-center gap-1.5">
-                    Talk 5 Minutes on Calls
-                    <span className="text-[10px] font-extrabold text-cyan-300">+25 Bonus Coins</span>
-                  </h5>
-                  <p className="text-[11px] text-slate-300 leading-relaxed mt-0.5">
-                    Enjoy 1-on-1 audio & video calls. When you complete 5 mins call time, your inviter receives +25 Bonus Coins!
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Feature Highlights Grid */}
-            <div className="grid grid-cols-3 gap-2">
-              <div className="bg-slate-950/70 border border-slate-800/80 rounded-xl p-2.5 text-center">
-                <PhoneCall className="w-4 h-4 text-pink-400 mx-auto" />
-                <div className="text-[10px] font-bold text-slate-200 mt-1">HD Video Calls</div>
-              </div>
-              <div className="bg-slate-950/70 border border-slate-800/80 rounded-xl p-2.5 text-center">
-                <Users className="w-4 h-4 text-cyan-400 mx-auto" />
-                <div className="text-[10px] font-bold text-slate-200 mt-1">Live Audio Party</div>
-              </div>
-              <div className="bg-slate-950/70 border border-slate-800/80 rounded-xl p-2.5 text-center">
-                <Gift className="w-4 h-4 text-amber-400 mx-auto" />
-                <div className="text-[10px] font-bold text-slate-200 mt-1">3D Virtual Gifts</div>
-              </div>
-            </div>
-
-            {/* Trust Footer Badge */}
-            <div className="flex items-center justify-center gap-2 text-[11px] text-slate-400 font-semibold pt-1">
-              <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
-              Verified Google Play Protect Safe • 100% Free Signup
-            </div>
-          </>
-        )}
+        {/* Trust Footer Badge */}
+        <div className="flex items-center justify-center gap-2 text-[11px] text-slate-400 font-semibold pt-1">
+          <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
+          Verified Google Play Protect Safe • 100% Free Signup
+        </div>
 
       </div>
 
