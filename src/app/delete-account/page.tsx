@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -62,7 +62,7 @@ export default function DeleteAccount() {
       return;
     }
     if (idType === 'userId' && cleanId.length < 4) {
-      setErrorMessage('Please enter a valid numeric Yaro User ID (e.g. 10000004).');
+      setErrorMessage('Please enter a valid numeric Dark Moon User ID (e.g. 10000004).');
       return;
     }
 
@@ -104,7 +104,7 @@ export default function DeleteAccount() {
       let assignedTicket = `YARO-DEL-${new Date().getFullYear()}-${Math.floor(100000 + Math.random() * 900000)}`;
 
       try {
-        const response = await fetch('https://api.yaroapp.in/public/delete-account-request', {
+        const response = await fetch('https://api.darkmoon.app/public/delete-account-request', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -132,7 +132,7 @@ export default function DeleteAccount() {
       setRequestTimestamp(new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }));
       setStep(4);
     } catch (err: any) {
-      setErrorMessage('Failed to submit deletion request. Please contact support@yaroapp.in directly.');
+      setErrorMessage('Failed to submit deletion request. Please contact support@darkmoon.app directly.');
     } finally {
       setSubmitting(false);
     }
@@ -153,7 +153,7 @@ export default function DeleteAccount() {
           <Trash2 className="w-3.5 h-3.5" /> Self-Service Data Erasure Portal
         </div>
         <h1 className="text-4xl sm:text-5xl font-black text-white tracking-tight">
-          Yaro Account <span className="text-gradient">Deletion Flow</span>
+          Dark Moon Account <span className="text-gradient">Deletion Flow</span>
         </h1>
         <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
           Google Play compliant data deletion portal. Complete this 3-step verification flow to permanently erase your profile, social graphs, and virtual asset records.
@@ -202,7 +202,7 @@ export default function DeleteAccount() {
                 <UserCheck className="w-5 h-5 text-pink-400" /> Step 1: Identify Your Account
               </h3>
               <p className="text-xs text-zinc-400">
-                Provide your registered Yaro credentials to locate the account data record.
+                Provide your registered Dark Moon credentials to locate the account data record.
               </p>
             </div>
 
@@ -246,7 +246,7 @@ export default function DeleteAccount() {
                     onChange={() => setIdType('userId')}
                     className="text-pink-500 focus:ring-pink-500"
                   />
-                  Yaro Numeric User ID
+                  Dark Moon Numeric User ID
                 </label>
                 <label className="flex items-center gap-2 cursor-pointer">
                   <input
@@ -264,7 +264,7 @@ export default function DeleteAccount() {
             {/* Identifier Input */}
             <div className="space-y-1.5">
               <label className="block text-xs font-bold text-zinc-200">
-                {idType === 'userId' ? 'Enter Numeric Yaro User ID' : 'Enter Registered Mobile Number'}
+                {idType === 'userId' ? 'Enter Numeric Dark Moon User ID' : 'Enter Registered Mobile Number'}
               </label>
               <input
                 type="text"
@@ -276,7 +276,7 @@ export default function DeleteAccount() {
               />
               <p className="text-[11px] text-zinc-500">
                 {idType === 'userId'
-                  ? 'Your 8-to-10 digit Yaro ID is visible on your profile header in the mobile app.'
+                  ? 'Your 8-to-10 digit Dark Moon ID is visible on your profile header in the mobile app.'
                   : 'Include country dial code (e.g. +91 for India).'}
               </p>
             </div>
@@ -449,7 +449,7 @@ export default function DeleteAccount() {
                   className="mt-1 rounded bg-zinc-900 border-zinc-700 text-rose-600 focus:ring-rose-500"
                 />
                 <label htmlFor="final-consent" className="text-xs text-zinc-300 cursor-pointer leading-relaxed">
-                  I hereby authorize Yaro Inc. to immediately revoke all my active login sessions and purge all my personal profile information in accordance with Google Play User Data Policy.
+                  I hereby authorize Dark Moon Inc. to immediately revoke all my active login sessions and purge all my personal profile information in accordance with Google Play User Data Policy.
                 </label>
               </div>
             </div>
@@ -548,7 +548,7 @@ export default function DeleteAccount() {
                 href="/"
                 className="btn-gradient px-8 py-3.5 rounded-full text-xs font-extrabold shadow-xl"
               >
-                Back to Yaro Homepage
+                Back to Dark Moon Homepage
               </Link>
               <button
                 onClick={() => {
@@ -582,7 +582,7 @@ export default function DeleteAccount() {
             </div>
           </div>
           <p className="text-xs text-zinc-300 leading-relaxed">
-            Open <strong>Yaro App</strong> &gt; Profile Tab &gt; Settings &gt; <strong>Delete Account</strong>. Your credentials and session will be purged instantly.
+            Open <strong>Dark Moon App</strong> &gt; Profile Tab &gt; Settings &gt; <strong>Delete Account</strong>. Your credentials and session will be purged instantly.
           </p>
         </div>
 
@@ -598,7 +598,7 @@ export default function DeleteAccount() {
             </div>
           </div>
           <p className="text-xs text-zinc-300 leading-relaxed">
-            Send an email to <a href="mailto:support@yaroapp.in" className="text-pink-400 font-bold hover:underline">support@yaroapp.in</a> with your registered User ID and mobile number.
+            Send an email to <a href="mailto:support@darkmoon.app" className="text-pink-400 font-bold hover:underline">support@darkmoon.app</a> with your registered User ID and mobile number.
           </p>
         </div>
       </div>

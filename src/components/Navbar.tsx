@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
@@ -34,14 +34,14 @@ export default function Navbar() {
             <div className="relative">
               <img
                 src="/logo.png"
-                alt="Yaro Logo"
+                alt="Dark Moon Logo"
                 className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl border-2 border-pink-500/50 shadow-lg shadow-pink-500/30 object-cover group-hover:scale-105 transition-transform"
               />
               <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-[#080414] animate-pulse" />
             </div>
             <div className="flex flex-col">
               <span className="text-lg sm:text-xl font-extrabold text-gradient tracking-tight">
-                Yaro
+                Dark Moon
               </span>
               <span className="text-[9px] sm:text-[10px] text-pink-400 font-bold -mt-0.5">
                 Live Video & Voice

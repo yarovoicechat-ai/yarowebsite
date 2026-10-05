@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect } from 'react';
 import DownloadButton from './DownloadButton';
@@ -28,12 +28,12 @@ export default function FloatingDownloadBar() {
         <div className="flex items-center gap-3">
           <img
             src="/logo.png"
-            alt="Yaro App Icon"
+            alt="Dark Moon App Icon"
             className="w-11 h-11 rounded-2xl border-2 border-pink-500/50 shadow-lg shadow-pink-500/30 object-cover shrink-0"
           />
           <div>
             <div className="text-xs font-extrabold text-white flex items-center gap-1.5">
-              Yaro App
+              Dark Moon App
               <span className="text-[10px] px-1.5 py-0.2 rounded bg-pink-500/20 text-pink-400 font-bold">
                 v0.0.2
               </span>

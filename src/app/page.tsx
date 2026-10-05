@@ -1,4 +1,4 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 import DownloadButton from '@/components/DownloadButton';
 import PhoneShowcase from '@/components/PhoneShowcase';
 import StatsSection from '@/components/StatsSection';
@@ -26,7 +26,7 @@ export default function Home() {
             <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-pink-500/10 border border-pink-500/30 backdrop-blur-xl shadow-xl shadow-pink-500/10">
               <img
                 src="/logo.png"
-                alt="Yaro Logo"
+                alt="Dark Moon Logo"
                 className="w-6 h-6 rounded-lg object-cover shadow-sm shadow-pink-500/40"
               />
               <span className="text-xs font-extrabold text-zinc-100 uppercase tracking-wide">
@@ -42,7 +42,7 @@ export default function Home() {
 
             {/* Subtitle */}
             <p className="text-zinc-300 text-base sm:text-xl max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
-              Experience crystal-clear 1-on-1 voice calling, 9-seat group audio party lounges, 3D animated virtual gifts, and instant global connections on <strong className="text-white">Yaro</strong>.
+              Experience crystal-clear 1-on-1 voice calling, 9-seat group audio party lounges, 3D animated virtual gifts, and instant global connections on <strong className="text-white">Dark Moon</strong>.
             </p>
 
             {/* CTA Buttons */}

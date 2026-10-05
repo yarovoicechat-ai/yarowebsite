@@ -1,17 +1,17 @@
-import { Lock } from 'lucide-react';
+﻿import { Lock } from 'lucide-react';
 
 export default function PrivacyPolicy() {
   const sections = [
     {
       title: "1. Overview & Commitment to Privacy",
-      content: "Welcome to Yaro (\"we,\" \"our,\" or \"us\"). We are committed to safeguarding user data, ensuring maximum transparency, and upholding international privacy standards. This Privacy Policy details how we collect, handle, and protect your information when you use our mobile application and related services."
+      content: "Welcome to Dark Moon (\"we,\" \"our,\" or \"us\"). We are committed to safeguarding user data, ensuring maximum transparency, and upholding international privacy standards. This Privacy Policy details how we collect, handle, and protect your information when you use our mobile application and related services."
     },
     {
       title: "2. Information We Collect",
       subsections: [
         {
           subtitle: "Real-Time Microphone & Audio Data",
-          text: "Yaro is an interactive voice chat platform requiring microphone access (android.permission.RECORD_AUDIO). Audio data is processed strictly in real-time for live voice communication. Voice calls and room conversations are NEVER recorded or stored on our servers."
+          text: "Dark Moon is an interactive voice chat platform requiring microphone access (android.permission.RECORD_AUDIO). Audio data is processed strictly in real-time for live voice communication. Voice calls and room conversations are NEVER recorded or stored on our servers."
         },
         {
           subtitle: "Account & Profile Information",
@@ -33,7 +33,7 @@ export default function PrivacyPolicy() {
     },
     {
       title: "5. Account Deletion & Data Rights",
-      content: "Users retain full rights to request complete deletion of their account and data at any time directly in the app (Profile -> Settings -> Account Security -> Delete Account) or by emailing support@yaroapp.in."
+      content: "Users retain full rights to request complete deletion of their account and data at any time directly in the app (Profile -> Settings -> Account Security -> Delete Account) or by emailing support@darkmoon.app."
     }
   ];
 
@@ -90,7 +90,7 @@ export default function PrivacyPolicy() {
           </div>
         </div>
         <p className="text-zinc-300 text-sm leading-relaxed">
-          Users have the right to request permanent deletion of their account and all associated personal data at any time, even if they have uninstalled the Yaro application.
+          Users have the right to request permanent deletion of their account and all associated personal data at any time, even if they have uninstalled the Dark Moon application.
         </p>
         <div className="pt-2">
           <a
