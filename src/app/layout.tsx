@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import FloatingDownloadBar from "@/components/FloatingDownloadBar";
+import SiteChrome from "@/components/SiteChrome";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -33,12 +31,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/logo.png" />
       </head>
       <body className="antialiased font-sans">
-        <Navbar />
-        <main className="min-h-screen pt-10">
-          {children}
-        </main>
-        <FloatingDownloadBar />
-        <Footer />
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   );
