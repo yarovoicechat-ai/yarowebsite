@@ -1,4 +1,4 @@
-﻿name: YaroWebsite Production Deploy
+name: YaroWebsite Production Deploy
 
 on:
   push:
