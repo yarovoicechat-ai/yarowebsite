@@ -50,6 +50,52 @@ jobs:
 
             /root/deployments/yaro-website/deploy-yaro-website.sh
 
+            echo "Ensuring production assetlinks.json in web roots and Nginx..."
+            for webroot in /www/wwwroot/yaroapp.in /www/wwwroot/www.yaroapp.in /var/www/yaroapp.in /var/www/html /root/apps/Yaro/YaroWeb/public; do
+              if [ -d "$webroot" ]; then
+                mkdir -p "$webroot/.well-known"
+                cat <<'EOF' > "$webroot/.well-known/assetlinks.json"
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "yaro.vc.app",
+      "sha256_cert_fingerprints": [
+        "13:F2:6D:95:D3:11:B7:1C:2B:C3:0A:A6:B9:7B:0C:23:86:9B:48:B2:2B:F3:44:AB:2E:F9:04:BA:B5:D3:29:C4",
+        "AE:60:BA:0C:7C:19:F6:91:22:66:2C:26:EF:0D:FF:CF:5D:E6:B3:DD:71:72:04:AD:04:AD:87:9D:07:8A:A3:1E"
+      ]
+    }
+  }
+]
+EOF
+                chmod 644 "$webroot/.well-known/assetlinks.json"
+              fi
+            done
+
+            find /www /var/www /root/apps -name "assetlinks.json" 2>/dev/null | while read -r f; do
+              if grep -q "00:00:00:00" "$f" 2>/dev/null; then
+                echo "Updating placeholder assetlinks at $f"
+                cat <<'EOF' > "$f"
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "yaro.vc.app",
+      "sha256_cert_fingerprints": [
+        "13:F2:6D:95:D3:11:B7:1C:2B:C3:0A:A6:B9:7B:0C:23:86:9B:48:B2:2B:F3:44:AB:2E:F9:04:BA:B5:D3:29:C4",
+        "AE:60:BA:0C:7C:19:F6:91:22:66:2C:26:EF:0D:FF:CF:5D:E6:B3:DD:71:72:04:AD:04:AD:87:9D:07:8A:A3:1E"
+      ]
+    }
+  }
+]
+EOF
+              fi
+            done
+
+            systemctl reload nginx || nginx -s reload || true
+
             echo "========================================"
             echo "       DEPLOYMENT COMPLETED"
             echo "========================================"
