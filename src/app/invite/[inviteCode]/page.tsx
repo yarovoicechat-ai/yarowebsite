@@ -27,10 +27,30 @@ export default function ReferPage({ params }: { params: Promise<{ inviteCode?: s
     if (typeof window === 'undefined' || !isValidCode) return;
 
     const isAndroid = /android/i.test(navigator.userAgent);
-    if (isAndroid) {
-      window.location.href = androidIntentUrl;
-    }
-  }, [isValidCode, androidIntentUrl]);
+    if (!isAndroid) return;
+
+    let appOpened = false;
+    const onVisibilityChange = () => {
+      if (document.hidden || (document as any).webkitHidden) {
+        appOpened = true;
+      }
+    };
+    document.addEventListener('visibilitychange', onVisibilityChange);
+
+    window.location.href = androidIntentUrl;
+
+    const timer = setTimeout(() => {
+      document.removeEventListener('visibilitychange', onVisibilityChange);
+      if (!appOpened && !document.hidden) {
+        window.location.href = playStoreUrl;
+      }
+    }, 1600);
+
+    return () => {
+      document.removeEventListener('visibilitychange', onVisibilityChange);
+      clearTimeout(timer);
+    };
+  }, [isValidCode, androidIntentUrl, playStoreUrl]);
 
   const handleCopy = () => {
     if (!isValidCode) return;

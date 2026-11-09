@@ -1,0 +1,28 @@
+import { NextResponse } from 'next/server';
+
+export const dynamic = 'force-static';
+export const revalidate = false;
+
+const ASSET_LINKS = [
+  {
+    relation: ['delegate_permission/common.handle_all_urls'],
+    target: {
+      namespace: 'android_app',
+      package_name: 'yaro.vc.app',
+      sha256_cert_fingerprints: [
+        '13:F2:6D:95:D3:11:B7:1C:2B:C3:0A:A6:B9:7B:0C:23:86:9B:48:B2:2B:F3:44:AB:2E:F9:04:BA:B5:D3:29:C4',
+        'AE:60:BA:0C:7C:19:F6:91:22:66:2C:26:EF:0D:FF:CF:5D:E6:B3:DD:71:72:04:AD:04:AD:87:9D:07:8A:A3:1E',
+      ],
+    },
+  },
+];
+
+export async function GET() {
+  return new NextResponse(JSON.stringify(ASSET_LINKS, null, 2), {
+    status: 200,
+    headers: {
+      'Content-Type': 'application/json; charset=utf-8',
+      'Cache-Control': 'public, max-age=3600, s-maxage=3600',
+    },
+  });
+}
